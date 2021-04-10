@@ -1,0 +1,10 @@
+<svg id = 'hill'  viewBox="0 0 926 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient spreadMethod="pad" id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(126, 245, 131);stop-opacity:1;" />
+	<stop offset="28.999999999999996%" style="stop-color:rgb(85, 202, 99);stop-opacity:1;" />
+	<stop offset="100%" style="stop-color:rgb(9, 120, 40);stop-opacity:1;" />
+</linearGradient>
+</defs>
+<path  fill="url(#gradient)" d="M92 70C43 70 1 314 1 314V479H925V263C925 263 856 118 826 117C796 116 753 258 753 258C753 258 618 70 609 70C600 70 537 277 537 277C537 277 471 142 449 142C427 142 420 284 420 284C420 284 369 -5.99998 301 1.00002C233 8.00002 221 299 221 299C221 299 141 70 92 70Z"/>
+</svg>

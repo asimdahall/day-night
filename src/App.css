@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --day-primary: #36d6ed;
+  --day-secondary: #65ddef;
+  --day-tertiary: #c9f6ff;
+
+  --sun-primary: #fc9603;
+  --sun-secondary: #ffcc33;
+  --sun-tertiary: #ffe484;
+
+  --greenary-primary: #9dff89;
+  --greenary-secondary: #7ef583;
+  --greenary-tertiary: #097828;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#sky {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: linear-gradient(
+    to bottom right,
+    var(--day-primary),
+    var(--day-tertiary)
+  );
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#sun {
+  background: linear-gradient(
+    to top right,
+    var(--sun-primary),
+    var(--sun-secondary)
+  );
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20%;
+  box-shadow: 0px 0px 5px 5px var(--sun-tertiary);
+  animation: sun 2s linear infinite alternate-reverse;
 }
 
-.App-link {
-  color: #61dafb;
+.cloud {
+  height: 120px;
+  width: 200px;
+  position: absolute;
 }
 
-@keyframes App-logo-spin {
+#cloud1 {
+  top: 5%;
+  left: -30%;
+  animation: cloud 40s linear infinite alternate;
+}
+
+#cloud2 {
+  top: 20%;
+  left: -10%;
+  animation: cloud 30s linear infinite normal;
+}
+
+#hill {
+  bottom: -3%;
+  position: absolute;
+  fill: green;
+  height: 60%;
+  width: 110%;
+  left: -5%;
+  fill: linear-gradient(
+    to bottom right,
+    var(--greenary-primary),
+    var(--greenary-tertiary),
+    var(--greenary-tertiary)
+  );
+}
+
+.winds {
+  position: absolute;
+  top: 20%;
+  animation: cloud 50s linear infinite normal;
+}
+
+#winds1 {
+  top: 40%;
+  animation: cloud 70s linear infinite normal;
+}
+
+.wind {
+  height: 4px;
+  width: 20px;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#wind1 {
+  width: 30px;
+  margin-left: 8px;
+}
+
+#wind2 {
+  width: 80px;
+}
+
+#wind3 {
+  width: 60px;
+  margin-left: 12px;
+}
+
+@keyframes sun {
   from {
-    transform: rotate(0deg);
+    box-shadow: 0px 0px 5px 5px var(--sun-tertiary);
   }
   to {
-    transform: rotate(360deg);
+    box-shadow: 0px 0px 5px 8px var(--sun-tertiary);
+  }
+}
+
+@keyframes cloud {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 100%));
   }
 }

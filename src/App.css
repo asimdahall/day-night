@@ -3,10 +3,30 @@
   padding: 0;
 }
 
-:root {
+#toggler {
+  left: 2rem;
+  top: 2rem;
+  position: absolute;
+  z-index: 2;
+  min-width: 16rem;
+}
+#toggler::after {
+  content: "Toggle to night Time";
+}
+
+#toggler:checked:after {
+  content: "Toggle to day Time";
+  color: white;
+}
+
+#toggler + .day {
   --day-primary: #36d6ed;
   --day-secondary: #65ddef;
   --day-tertiary: #c9f6ff;
+
+  --night-primary: #38285c;
+  --night-secondary: #666569;
+  --night-tertiary: #0c1445;
 
   --sun-primary: #fc9603;
   --sun-secondary: #ffcc33;
@@ -17,15 +37,48 @@
   --greenary-tertiary: #097828;
 }
 
+#toggler:checked + #sky {
+  background-position: right;
+}
+
+#toggler:checked + .day > #sun {
+  transform: translateY(100vh);
+}
+
+#toggler:checked + .day > #stars {
+  display: initial;
+}
+
+#toggler:checked + .day > #moon {
+  transform: translateY(0);
+}
+
 #sky {
   height: 100vh;
   width: 100vw;
   position: relative;
-  background: linear-gradient(
-    to bottom right,
+  overflow: hidden;
+
+  background-image: linear-gradient(
+    45deg,
     var(--day-primary),
-    var(--day-tertiary)
+    var(--day-tertiary),
+    var(--night-primary),
+    var(--night-tertiary)
   );
+  background-size: 400%;
+  background-position: left;
+  transition: background-position 1000ms ease-in;
+}
+
+#moon {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 20px;
+  right: 20%;
+  transform: translateY(-100vh);
+  transition: transform 1000ms ease-in-out;
 }
 
 #sun {
@@ -42,6 +95,20 @@
   right: 20%;
   box-shadow: 0px 0px 5px 5px var(--sun-tertiary);
   animation: sun 2s linear infinite alternate-reverse;
+  transition: transform 1000ms ease-in-out;
+}
+
+#stars {
+  display: none;
+}
+
+#star {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  animation: star 5s linear infinite alternate-reverse;
 }
 
 .cloud {
@@ -108,6 +175,17 @@
 #wind3 {
   width: 60px;
   margin-left: 12px;
+}
+
+@keyframes star {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes sun {

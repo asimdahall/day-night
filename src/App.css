@@ -108,7 +108,7 @@
   border-radius: 50%;
   position: absolute;
   background-color: white;
-  animation: star 5s linear infinite alternate-reverse;
+  animation: star linear infinite alternate-reverse;
 }
 
 .cloud {

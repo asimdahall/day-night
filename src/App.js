@@ -11,6 +11,8 @@ function getRandomArbitrary(min, max) {
 
 const getNumberOfStars = () => getRandomArbitrary(100, 200);
 
+const getAnimationDuration = () => getRandomArbitrary(2000, 5000);
+
 const getStarStyles = () => {
   const size = getRandomArbitrary(2, 6) + "px";
   return {
@@ -18,6 +20,7 @@ const getStarStyles = () => {
     left: getRandomArbitrary(0, 100) + "vw",
     width: size,
     height: size,
+    animationDuration: getAnimationDuration() + "ms",
   };
 };
 
